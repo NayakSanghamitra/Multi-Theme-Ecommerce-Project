@@ -1,46 +1,58 @@
 <template>
-    <div>
-      <v-container>
-        <v-row>
-          <v-col cols="12">
-            <h2>Shopping Cart</h2>
-            <v-list>
-              <v-list-item-group>
-                <v-list-item v-for="item in cart" :key="item.id">
-                  <v-list-item-content>
-                    <v-list-item-title>{{ item.title }}</v-list-item-title>
-                    <v-list-item-subtitle>Price: ${{ item.price }}</v-list-item-subtitle>
-                  </v-list-item-content>
-                  <v-list-item-action>
-                    <v-btn @click="removeFromCart(item.id)" color="error">
-                      Remove
-                    </v-btn>
-                  </v-list-item-action>
-                </v-list-item>
-              </v-list-item-group>
-            </v-list>
-            <p>Total: ${{ cartTotal }}</p>
-          </v-col>
-        </v-row>
-      </v-container>
+  <div class="shopping-cart">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="mb-4">Shopping Cart</h2>
+          <ul class="list-group">
+            <li
+              v-for="item in cart"
+              :key="item.id"
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              <div class="d-flex align-items-center">
+                <img :src="item.image" alt="Product" class="img-fluid product-image mr-3" />
+                <div>
+                  <h5 class="mb-1">{{ item.title }}</h5>
+                  <p class="mb-0">Price: ${{ item.price }}</p>
+                </div>
+              </div>
+              <button
+                @click="removeFromCart(item.id)"
+                class="btn btn-sm btn-danger"
+              >
+                Remove
+              </button>
+            </li>
+          </ul>
+          <p class="mt-4">Total: ${{ cartTotal }}</p>
+        </div>
+      </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'ShoppingCart',
-    computed: {
-      cart() {
-        return this.$store.state.cart;
-      },
-      cartTotal() {
-        return this.$store.getters.cartTotal;
-      }
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'ShoppingCart',
+  computed: {
+    cart() {
+      return this.$store.state.cart;
     },
-    methods: {
-      removeFromCart(productId) {
-        this.$store.commit('removeFromCart', productId);
-      }
-    }
-  };
-  </script>
+    cartTotal() {
+      return this.$store.getters.cartTotal;
+    },
+  },
+  methods: {
+    removeFromCart(productId) {
+      this.$store.commit('removeFromCart', productId);
+    },
+  },
+};
+</script>
+
+<style scoped>
+.product-image {
+  max-width: 80px;
+}
+</style>

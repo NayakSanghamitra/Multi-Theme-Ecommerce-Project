@@ -1,37 +1,44 @@
 <template>
-    <div>
-      <v-container>
-        <v-row>
-          <v-col
-            v-for="product in products"
-            :key="product.id"
-            cols="12"
-            md="4"
-          >
-            <v-card class="mb-3">
-              <img
-                :src="product.image"
-                alt="Product"
-                height="200"
-              />
-              <v-card-title>{{ product.title }}</v-card-title>
-              <v-card-subtitle>${{ product.price }}</v-card-subtitle>
-              <v-card-actions>
+  <div>
+    <div class="container">
+      <div class="row">
+        <div
+          v-for="product in products"
+          :key="product.id"
+          class="col-12 col-sm-6 col-md-4 mb-3"
+        >
+          <div class="card h-100">
+            <img
+              :src="product.image"
+              alt="Product"
+              class="card-img-top"
+              height="150"
+              loading="lazy"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ product.title }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">${{ product.price }}</h6>
+              <div class="text-center mb-3">
                 <router-link
                   :to="{ name: 'product-details', params: { id: product.id } }"
+                  class="btn btn-primary btn-sm w-100"
                 >
-                  Details
+                  View Details
                 </router-link>
-                <v-btn @click="addToCart(product)" color="primary">
-                  Add to Cart
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
+              </div>
+              <button
+                @click="addToCart(product)"
+                class="btn btn-primary btn-block w-100"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </template>
+  </div>
+</template>
   
   <script>
   import axios from 'axios';
