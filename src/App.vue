@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header class="header" :class="themeColor">
+    <header class="header">
       <nav class="header__nav">
         <router-link class="header__nav__link" to="/">Home</router-link>
         <router-link class="header__nav__link" to="/cart">Cart</router-link>
