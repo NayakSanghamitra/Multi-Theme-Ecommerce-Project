@@ -6,6 +6,11 @@ export default defineNuxtConfig({
     compatibilityVersion: 4
   },
 
+  // Required for GitHub Pages subpath deployment
+  app: {
+    baseURL: '/Multi-Theme-Ecommerce-Project/'
+  },
+
   compatibilityDate: '2026-07-01',
   devtools: { enabled: true },
 
