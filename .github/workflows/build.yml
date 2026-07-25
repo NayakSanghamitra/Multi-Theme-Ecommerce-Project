@@ -1,4 +1,4 @@
-name: Build Nuxt Application
+name: Build and Deploy Nuxt Application
 
 on:
   push:
@@ -6,8 +6,12 @@ on:
   pull_request:
     branches: [ main ]
 
+# Grant workflow permissions to publish to GitHub Pages
+permissions:
+  contents: write
+
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,9 +23,17 @@ jobs:
         with:
           node-version: 22
 
-      # Use npm install with legacy peer deps to bypass lockfile errors
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Run Build Test
-        run: npm run build
+      # Generates static HTML, JS, and CSS files in .output/public
+      - name: Generate Static Site
+        run: npx nuxi generate
+
+      # Automatically publishes static files to the gh-pages branch
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: .output/public
+          branch: gh-pages
