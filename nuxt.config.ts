@@ -5,9 +5,11 @@ export default defineNuxtConfig({
     compatibilityVersion: 4
   },
 
+  ssr: true, // Required for static HTML generation with nuxi generate
+
   app: {
     baseURL: '/Multi-Theme-Ecommerce-Project/',
-    buildAssetsDir: '/_nuxt/',
+    buildAssetsDir: '_nuxt', // Avoids leading slash issues in static routing
     head: {
       link: [
         {
@@ -24,11 +26,10 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      failOnError: false
+      failOnError: false,
+      crawlLinks: true
     }
   },
-
-  ssr: false, // Disables server pre-rendering to prevent 404 asset drops on GitHub Pages
 
   compatibilityDate: '2026-07-01',
   devtools: { enabled: true },
