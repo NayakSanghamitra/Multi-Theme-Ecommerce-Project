@@ -24,7 +24,6 @@ export default defineNuxtConfig({
     }
   },
 
-  // Tells Nuxt how to bundle chart.js for SSR & static builds
   build: {
     transpile: ['chart.js']
   },
