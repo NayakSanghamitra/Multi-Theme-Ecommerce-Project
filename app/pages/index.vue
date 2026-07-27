@@ -86,6 +86,11 @@ const metrics = [
           <div style="height: 320px; position: relative; width: 100%;">
             <ClientOnly>
               <Bar :data="barData" :options="barOptions" />
+              <template #fallback>
+                <div class="d-flex align-center justify-center h-100 text-medium-emphasis">
+                  <v-progress-circular indeterminate color="primary" class="mr-2" /> Loading Chart...
+                </div>
+              </template>
             </ClientOnly>
           </div>
         </v-card>
@@ -97,6 +102,11 @@ const metrics = [
           <div style="height: 320px; position: relative; width: 100%;">
             <ClientOnly>
               <Doughnut :data="doughnutData" :options="doughnutOptions" />
+              <template #fallback>
+                <div class="d-flex align-center justify-center h-100 text-medium-emphasis">
+                  <v-progress-circular indeterminate color="primary" class="mr-2" /> Loading Distribution...
+                </div>
+              </template>
             </ClientOnly>
           </div>
         </v-card>
