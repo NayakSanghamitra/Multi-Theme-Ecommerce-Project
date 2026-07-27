@@ -1,3 +1,4 @@
+// nuxt.config.ts
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
@@ -7,7 +8,8 @@ export default defineNuxtConfig({
 
   app: {
     baseURL: '/Multi-Theme-Ecommerce-Project/',
-    buildAssetsDir: '/_nuxt/', // Added slashes to fix 404 JS chunk drops
+    // Renames _nuxt/ to assets/ so GitHub Pages doesn't block the folder
+    buildAssetsDir: 'assets', 
     head: {
       link: [
         {
