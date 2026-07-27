@@ -1,7 +1,7 @@
 <template>
   <v-app class="bg-grey-lighten-4">
-    <!-- `app` anchors the bar to the top of the app layout -->
-    <v-app-bar app elevation="1" color="surface" height="64">
+    <!-- `app` + `position="fixed"` forces the header to lock to the top of the viewport -->
+    <v-app-bar app position="fixed" elevation="1" color="surface" height="64">
       <v-container fluid class="d-flex align-center py-0 px-6">
         <v-icon icon="mdi-chart-timeline-variant" color="primary" size="28" class="mr-3" />
         <v-app-bar-title class="font-weight-bold text-h6 text-primary">
@@ -31,7 +31,6 @@
       </v-container>
     </v-app-bar>
 
-    <!-- Vuetify automatically calculates top padding for v-main when app is set on v-app-bar -->
     <v-main>
       <v-container fluid class="pa-6">
         <slot />
