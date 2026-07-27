@@ -83,7 +83,7 @@ const metrics = [
       <v-col cols="12" md="8">
         <v-card class="pa-6 rounded-lg elevation-1">
           <h3 class="text-h6 font-weight-bold mb-4 text-grey-darken-3">Stock Movement & Inflow Velocity</h3>
-          <div style="height: 320px; position: relative;">
+          <div style="height: 320px; position: relative; width: 100%;">
             <ClientOnly>
               <Bar :data="barData" :options="barOptions" />
             </ClientOnly>
@@ -94,7 +94,7 @@ const metrics = [
       <v-col cols="12" md="4">
         <v-card class="pa-6 rounded-lg elevation-1">
           <h3 class="text-h6 font-weight-bold mb-4 text-grey-darken-3">Inventory Distribution</h3>
-          <div style="height: 320px; position: relative;">
+          <div style="height: 320px; position: relative; width: 100%;">
             <ClientOnly>
               <Doughnut :data="doughnutData" :options="doughnutOptions" />
             </ClientOnly>
