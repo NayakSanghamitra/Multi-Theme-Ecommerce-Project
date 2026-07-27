@@ -1,1 +1,356 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.x/css/materialdesignicons.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vuetify@3.7.0/dist/vuetify.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" type="text/css" crossorigin="anonymous" data-hid="mdi"><link rel="stylesheet" href="/Multi-Theme-Ecommerce-Project/_nuxt/entry.4r8z9XDi.css" crossorigin><link rel="modulepreload" as="script" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/89iiR12L.js"><script type="module" src="/Multi-Theme-Ecommerce-Project/_nuxt/89iiR12L.js" crossorigin></script><link rel="prefetch" as="style" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/default.DmiPLxfD.css"><link rel="prefetch" as="style" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/VBtn.D8zkD7A6.css"><link rel="prefetch" as="style" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/ssrBoot.izdAGX-2.css"><link rel="prefetch" as="script" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/448MQ07w.js"><link rel="prefetch" as="script" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/CP6LPuz_.js"><link rel="prefetch" as="script" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/CzuJApMS.js"><link rel="prefetch" as="style" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/error-500.DdcU-NLM.css"><link rel="prefetch" as="script" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/DPSOtK0w.js"><link rel="prefetch" as="script" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/BpxEI8e0.js"></head><body><div id="__nuxt"></div><div id="teleports"></div><script>window.__NUXT__={};window.__NUXT__.config={public:{},app:{baseURL:"/Multi-Theme-Ecommerce-Project/",buildId:"4f031762-8058-441e-b138-9b2f963ae420",buildAssetsDir:"/_nuxt/",cdnURL:""}}</script><script type="application/json" data-nuxt-data="nuxt-app" data-ssr="false" id="__NUXT_DATA__">[{"prerenderedAt":1,"serverRendered":2},1785141397032,false]</script></body></html>
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.x/css/materialdesignicons.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vuetify@3.7.0/dist/vuetify.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" type="text/css" crossorigin="anonymous" data-hid="mdi"><style id="vuetify-theme-stylesheet">:root {
+      --v-theme-background: 255,255,255;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 24,103,192;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 72,169,166;
+      --v-theme-secondary-overlay-multiplier: 1;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 238, 238, 238;
+      --v-theme-on-kbd: 0, 0, 0;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--light {
+      color-scheme: normal;
+      --v-theme-background: 255,255,255;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 24,103,192;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 72,169,166;
+      --v-theme-secondary-overlay-multiplier: 1;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 238, 238, 238;
+      --v-theme-on-kbd: 0, 0, 0;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--dark {
+      color-scheme: dark;
+      --v-theme-background: 18,18,18;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 33,33,33;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 204,191,214;
+      --v-theme-surface-bright-overlay-multiplier: 2;
+      --v-theme-surface-light: 66,66,66;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 200,200,200;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 0,0,0;
+      --v-theme-primary: 33,150,243;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 39,124,193;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 84,182,178;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 72,169,166;
+      --v-theme-secondary-darken-1-overlay-multiplier: 2;
+      --v-theme-error: 207,102,121;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 2;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 2;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 2;
+      --v-theme-on-background: 255,255,255;
+      --v-theme-on-surface: 255,255,255;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 255,255,255;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 255, 255, 255;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 1;
+      --v-medium-emphasis-opacity: 0.7;
+      --v-disabled-opacity: 0.5;
+      --v-idle-opacity: 0.1;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.16;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 66, 66, 66;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 52, 52, 52;
+      --v-theme-on-code: 204, 204, 204;
+    }
+    .bg-background {
+      --v-theme-overlay-multiplier: var(--v-theme-background-overlay-multiplier);
+      background-color: rgb(var(--v-theme-background)) !important;
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .bg-surface {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface)) !important;
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .bg-surface-bright {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-bright-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-bright)) !important;
+      color: rgb(var(--v-theme-on-surface-bright)) !important;
+    }
+    .bg-surface-light {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-light-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-light)) !important;
+      color: rgb(var(--v-theme-on-surface-light)) !important;
+    }
+    .bg-surface-variant {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-variant-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-variant)) !important;
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .bg-primary {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-overlay-multiplier);
+      background-color: rgb(var(--v-theme-primary)) !important;
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .bg-primary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-darken-1-overlay-multiplier);
+      background-color: rgb(var(--v-theme-primary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .bg-secondary {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-overlay-multiplier);
+      background-color: rgb(var(--v-theme-secondary)) !important;
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .bg-secondary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-darken-1-overlay-multiplier);
+      background-color: rgb(var(--v-theme-secondary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .bg-error {
+      --v-theme-overlay-multiplier: var(--v-theme-error-overlay-multiplier);
+      background-color: rgb(var(--v-theme-error)) !important;
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .bg-info {
+      --v-theme-overlay-multiplier: var(--v-theme-info-overlay-multiplier);
+      background-color: rgb(var(--v-theme-info)) !important;
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .bg-success {
+      --v-theme-overlay-multiplier: var(--v-theme-success-overlay-multiplier);
+      background-color: rgb(var(--v-theme-success)) !important;
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .bg-warning {
+      --v-theme-overlay-multiplier: var(--v-theme-warning-overlay-multiplier);
+      background-color: rgb(var(--v-theme-warning)) !important;
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+    .text-background {
+      color: rgb(var(--v-theme-background)) !important;
+    }
+    .border-background {
+      --v-border-color: var(--v-theme-background);
+    }
+    .text-surface {
+      color: rgb(var(--v-theme-surface)) !important;
+    }
+    .border-surface {
+      --v-border-color: var(--v-theme-surface);
+    }
+    .text-surface-bright {
+      color: rgb(var(--v-theme-surface-bright)) !important;
+    }
+    .border-surface-bright {
+      --v-border-color: var(--v-theme-surface-bright);
+    }
+    .text-surface-light {
+      color: rgb(var(--v-theme-surface-light)) !important;
+    }
+    .border-surface-light {
+      --v-border-color: var(--v-theme-surface-light);
+    }
+    .text-surface-variant {
+      color: rgb(var(--v-theme-surface-variant)) !important;
+    }
+    .border-surface-variant {
+      --v-border-color: var(--v-theme-surface-variant);
+    }
+    .on-surface-variant {
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .text-primary {
+      color: rgb(var(--v-theme-primary)) !important;
+    }
+    .border-primary {
+      --v-border-color: var(--v-theme-primary);
+    }
+    .text-primary-darken-1 {
+      color: rgb(var(--v-theme-primary-darken-1)) !important;
+    }
+    .border-primary-darken-1 {
+      --v-border-color: var(--v-theme-primary-darken-1);
+    }
+    .text-secondary {
+      color: rgb(var(--v-theme-secondary)) !important;
+    }
+    .border-secondary {
+      --v-border-color: var(--v-theme-secondary);
+    }
+    .text-secondary-darken-1 {
+      color: rgb(var(--v-theme-secondary-darken-1)) !important;
+    }
+    .border-secondary-darken-1 {
+      --v-border-color: var(--v-theme-secondary-darken-1);
+    }
+    .text-error {
+      color: rgb(var(--v-theme-error)) !important;
+    }
+    .border-error {
+      --v-border-color: var(--v-theme-error);
+    }
+    .text-info {
+      color: rgb(var(--v-theme-info)) !important;
+    }
+    .border-info {
+      --v-border-color: var(--v-theme-info);
+    }
+    .text-success {
+      color: rgb(var(--v-theme-success)) !important;
+    }
+    .border-success {
+      --v-border-color: var(--v-theme-success);
+    }
+    .text-warning {
+      color: rgb(var(--v-theme-warning)) !important;
+    }
+    .border-warning {
+      --v-border-color: var(--v-theme-warning);
+    }
+    .on-background {
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .on-surface {
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .on-surface-bright {
+      color: rgb(var(--v-theme-on-surface-bright)) !important;
+    }
+    .on-surface-light {
+      color: rgb(var(--v-theme-on-surface-light)) !important;
+    }
+    .on-primary {
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .on-primary-darken-1 {
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .on-secondary {
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .on-secondary-darken-1 {
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .on-error {
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .on-info {
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .on-success {
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .on-warning {
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+</style><style>.v-container{margin-left:auto;margin-right:auto;padding:16px;width:100%}@media(min-width:960px){.v-container{max-width:900px}}@media(min-width:1280px){.v-container{max-width:1200px}}@media(min-width:1920px){.v-container{max-width:1800px}}@media(min-width:2560px){.v-container{max-width:2400px}}.v-container--fluid{max-width:100%}.v-container.fill-height{align-items:center;display:flex;flex-wrap:wrap}</style><style>.v-app-bar{display:flex}.v-app-bar.v-toolbar{background:rgb(var(--v-theme-surface));color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-app-bar.v-toolbar:not(.v-toolbar--flat){box-shadow:0 2px 4px -1px var(--v-shadow-key-umbra-opacity,rgba(0,0,0,.2)),0 4px 5px 0 var(--v-shadow-key-penumbra-opacity,rgba(0,0,0,.14)),0 1px 10px 0 var(--v-shadow-key-ambient-opacity,rgba(0,0,0,.12))}.v-app-bar:not(.v-toolbar--absolute){padding-inline-end:var(--v-scrollbar-offset)}</style><style>.v-toolbar{align-items:flex-start;display:flex;flex:none;flex-direction:column;justify-content:space-between;max-width:100%;position:relative;transition:.2s cubic-bezier(.4,0,.2,1);transition-property:height,width,transform,max-width,left,right,top,bottom,box-shadow;width:100%}@media(prefers-reduced-motion:reduce){.v-toolbar{transition-property:box-shadow}}.v-toolbar{border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0}.v-toolbar--border{border-width:thin;box-shadow:none}.v-toolbar{background:rgb(var(--v-theme-surface-light));border-radius:0;box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity,rgba(0,0,0,.2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity,rgba(0,0,0,.14)),0 0 0 0 var(--v-shadow-key-ambient-opacity,rgba(0,0,0,.12));color:rgba(var(--v-theme-on-surface-light),var(--v-high-emphasis-opacity))}.v-toolbar--absolute{position:absolute}.v-toolbar--collapse{max-width:112px;overflow:hidden}.v-toolbar--collapse-end{margin-inline-start:auto}.v-toolbar--collapse.v-toolbar--collapse-start{border-end-end-radius:24px}.v-toolbar--collapse.v-toolbar--collapse-end{border-end-start-radius:24px}.v-toolbar--collapse .v-toolbar-title{display:none}.v-toolbar--flat{box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity,rgba(0,0,0,.2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity,rgba(0,0,0,.14)),0 0 0 0 var(--v-shadow-key-ambient-opacity,rgba(0,0,0,.12))}.v-toolbar--floating{display:inline-flex;width:auto}.v-toolbar--rounded{border-radius:4px}.v-toolbar__content,.v-toolbar__extension{align-items:center;display:flex;flex:0 0 auto;position:relative;transition:inherit;width:100%}.v-toolbar__content{overflow:hidden}.v-toolbar__content>.v-btn:first-child{margin-inline-start:4px}.v-toolbar__content>.v-btn:last-child{margin-inline-end:4px}.v-toolbar__content>.v-toolbar-title{margin-inline-start:20px}.v-toolbar--density-prominent .v-toolbar__content{align-items:flex-start}.v-toolbar__image{display:flex;height:100%;left:0;opacity:var(--v-toolbar-image-opacity,1);position:absolute;top:0;transition-property:opacity;width:100%}.v-toolbar__append,.v-toolbar__prepend{align-items:center;align-self:stretch;display:flex}.v-toolbar__prepend{margin-inline:4px auto}.v-toolbar__append{margin-inline:auto 4px}.v-toolbar-title{flex:1 1;font-size:1.25rem;font-weight:400;letter-spacing:0;line-height:1.75rem;min-width:0;text-transform:none}.v-toolbar--density-prominent .v-toolbar-title{align-self:flex-end;font-size:1.5rem;font-weight:400;letter-spacing:0;line-height:2.25rem;padding-bottom:6px;text-transform:none}.v-toolbar-title__placeholder{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-toolbar-items{align-self:stretch;display:flex;height:inherit}.v-toolbar-items>.v-btn{border-radius:0}</style><style>.v-main{flex:1 0 auto;max-width:100%;padding:var(--v-layout-top) var(--v-layout-right) var(--v-layout-bottom) var(--v-layout-left);transition:.2s cubic-bezier(.4,0,.2,1)}@media(prefers-reduced-motion:reduce){.v-main{transition:none}}.v-main__scroller{max-width:100%;position:relative}.v-main--scrollable{display:flex;height:100%;left:0;position:absolute;top:0;width:100%}.v-main--scrollable>.v-main__scroller{flex:1 1 auto;overflow-y:auto;--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:0px}</style><link rel="stylesheet" href="/Multi-Theme-Ecommerce-Project/_nuxt/entry.4r8z9XDi.css" crossorigin><link rel="stylesheet" href="/Multi-Theme-Ecommerce-Project/_nuxt/VBtn.D8zkD7A6.css" crossorigin><link rel="stylesheet" href="/Multi-Theme-Ecommerce-Project/_nuxt/ssrBoot.izdAGX-2.css" crossorigin><link rel="stylesheet" href="/Multi-Theme-Ecommerce-Project/_nuxt/VRow.B5gsmTgK.css" crossorigin><link rel="preload" as="fetch" crossorigin="anonymous" href="/Multi-Theme-Ecommerce-Project/_payload.json?9ae7df0b-73bd-40ff-be5e-4e7c7f807ccf"><link rel="modulepreload" as="script" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/ykgnn5R7.js"><link rel="modulepreload" as="script" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/NdIRsKEK.js"><link rel="modulepreload" as="script" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/CBTdVuUV.js"><link rel="modulepreload" as="script" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/DkwEWwBJ.js"><link rel="modulepreload" as="script" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/Blh_0VzU.js"><link rel="modulepreload" as="script" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/D6QJyXTy.js"><script type="module" src="/Multi-Theme-Ecommerce-Project/_nuxt/ykgnn5R7.js" crossorigin></script><link rel="prefetch" as="script" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/BuiOiPwo.js"><link rel="prefetch" as="script" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/CFxJK99_.js"><link rel="prefetch" as="script" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/CxR4x6W5.js"><link rel="prefetch" as="script" crossorigin href="/Multi-Theme-Ecommerce-Project/_nuxt/B-Ppfuzl.js"></head><body><div id="__nuxt"><div class="v-application v-theme--light v-layout v-layout--full-height v-locale--is-ltr" style=""><div class="v-application__wrap"><!--[--><div class="v-application v-theme--light v-layout v-layout--full-height v-locale--is-ltr bg-grey-lighten-4" style=""><div class="v-application__wrap"><!--[--><header class="v-toolbar v-toolbar--collapse-start v-toolbar--density-default bg-surface elevation-1 v-theme--light v-locale--is-ltr v-app-bar" style="top:0;z-index:904;transform:translateY(0%);position:absolute;transition:none !important;" app fixed><!----><!--[--><div class="v-toolbar__content" style="height:64px;"><!----><!----><!--[--><div class="v-container v-container--fluid v-locale--is-ltr d-flex align-center py-0 px-6" style=""><i class="mdi-chart-timeline-variant mdi v-icon notranslate v-theme--light text-primary mr-3" style="font-size:28px;height:28px;width:28px;" aria-hidden="true"></i><div class="v-toolbar-title font-weight-bold text-h6 text-primary v-app-bar-title" style=""><div class="v-toolbar-title__placeholder"><!----><!--[--> StockTrack Platform <!--]--></div></div><div class="v-spacer" style=""></div><a href="/Multi-Theme-Ecommerce-Project/" aria-current="page" class="v-btn v-btn--active v-theme--light text-primary v-btn--density-default v-btn--size-default v-btn--variant-text text-capitalize font-weight-bold" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><span class="v-btn__prepend"><i class="mdi-view-dashboard mdi v-icon notranslate v-theme--light v-icon--size-default" style="" aria-hidden="true"></i></span><span class="v-btn__content" data-no-activator><!--[--><!--[--> Dashboard <!--]--><!--]--></span><!----><!----></a><a href="/Multi-Theme-Ecommerce-Project/inventory" class="v-btn v-theme--light text-primary v-btn--density-default v-btn--size-default v-btn--variant-text text-capitalize font-weight-bold ml-2" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><span class="v-btn__prepend"><i class="mdi-package-variant-closed mdi v-icon notranslate v-theme--light v-icon--size-default" style="" aria-hidden="true"></i></span><span class="v-btn__content" data-no-activator><!--[--><!--[--> Inventory <!--]--><!--]--></span><!----><!----></a></div><!--]--><!----></div><!--]--><!--[--><!----><!--]--></header><main class="v-main" style="--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:0px;transition:none !important;padding-top:70px !important;"><!--[--><div class="v-container v-container--fluid v-locale--is-ltr pa-6" style=""><!--[--><div><div class="v-card v-theme--light bg-surface v-card--density-default v-card--variant-elevated pa-6 mb-6 rounded-lg elevation-1" style=""><!----><div class="v-card__loader"><div class="v-progress-linear v-theme--light v-locale--is-ltr" style="top:0;height:0;--v-progress-linear-height:2px;" role="progressbar" aria-hidden="true" aria-valuemin="0" aria-valuemax="100"><!----><div class="v-progress-linear__background" style=""></div><div class="v-progress-linear__buffer" style="width:0%;"></div><div class="v-progress-linear__indeterminate"><!--[--><div class="v-progress-linear__indeterminate long" style=""></div><div class="v-progress-linear__indeterminate short" style=""></div><!--]--></div><!----></div></div><!----><!----><!--[--><div class="d-flex justify-space-between align-center"><div><h1 class="text-h4 font-weight-bold text-grey-darken-3">Executive Operations Overview</h1><p class="text-body-1 text-medium-emphasis mt-1">Real-time inventory velocity, stock turnover rates, and financial reports.</p></div><a href="/Multi-Theme-Ecommerce-Project/inventory" class="v-btn v-btn--elevated v-theme--light bg-primary v-btn--density-default elevation-1 v-btn--size-large v-btn--variant-elevated" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><span class="v-btn__prepend"><i class="mdi-package-variant mdi v-icon notranslate v-theme--light v-icon--size-default" style="" aria-hidden="true"></i></span><span class="v-btn__content" data-no-activator><!--[--><!--[--> Open Inventory <!--]--><!--]--></span><!----><!----></a></div><!--]--><!----><!--[--><!----><span class="v-card__underlay"></span><!--]--></div><div class="v-row mb-6" style=""><!--[--><div class="v-col-sm-6 v-col-md-3 v-col-12" style=""><div class="v-card v-theme--light v-card--density-default v-card--variant-elevated pa-4 rounded-lg elevation-1 h-100" style=""><!----><div class="v-card__loader"><div class="v-progress-linear v-theme--light v-locale--is-ltr" style="top:0;height:0;--v-progress-linear-height:2px;" role="progressbar" aria-hidden="true" aria-valuemin="0" aria-valuemax="100"><!----><div class="v-progress-linear__background" style=""></div><div class="v-progress-linear__buffer" style="width:0%;"></div><div class="v-progress-linear__indeterminate"><!--[--><div class="v-progress-linear__indeterminate long" style=""></div><div class="v-progress-linear__indeterminate short" style=""></div><!--]--></div><!----></div></div><!----><!----><!--[--><div class="d-flex justify-space-between align-start"><div><p class="text-caption font-weight-bold text-medium-emphasis text-uppercase">Total Revenue</p><h2 class="text-h4 font-weight-bold mt-1 text-grey-darken-3">$48,250</h2><span class="text-caption font-weight-medium text-primary mt-2 d-inline-block">+12% vs last month</span></div><div class="v-avatar v-theme--light text-success v-avatar--density-default v-avatar--variant-tonal rounded-lg" style="width:48px;height:48px;"><!--[--><!--[--><i class="mdi-currency-usd mdi v-icon notranslate v-theme--light" style="font-size:26px;height:26px;width:26px;" aria-hidden="true"></i><!--]--><!--]--><!--[--><!----><span class="v-avatar__underlay"></span><!--]--></div></div><!--]--><!----><!--[--><!----><span class="v-card__underlay"></span><!--]--></div></div><div class="v-col-sm-6 v-col-md-3 v-col-12" style=""><div class="v-card v-theme--light v-card--density-default v-card--variant-elevated pa-4 rounded-lg elevation-1 h-100" style=""><!----><div class="v-card__loader"><div class="v-progress-linear v-theme--light v-locale--is-ltr" style="top:0;height:0;--v-progress-linear-height:2px;" role="progressbar" aria-hidden="true" aria-valuemin="0" aria-valuemax="100"><!----><div class="v-progress-linear__background" style=""></div><div class="v-progress-linear__buffer" style="width:0%;"></div><div class="v-progress-linear__indeterminate"><!--[--><div class="v-progress-linear__indeterminate long" style=""></div><div class="v-progress-linear__indeterminate short" style=""></div><!--]--></div><!----></div></div><!----><!----><!--[--><div class="d-flex justify-space-between align-start"><div><p class="text-caption font-weight-bold text-medium-emphasis text-uppercase">Total In Stock</p><h2 class="text-h4 font-weight-bold mt-1 text-grey-darken-3">1,420 Items</h2><span class="text-caption font-weight-medium text-primary mt-2 d-inline-block">94% optimal</span></div><div class="v-avatar v-theme--light text-primary v-avatar--density-default v-avatar--variant-tonal rounded-lg" style="width:48px;height:48px;"><!--[--><!--[--><i class="mdi-package-variant mdi v-icon notranslate v-theme--light" style="font-size:26px;height:26px;width:26px;" aria-hidden="true"></i><!--]--><!--]--><!--[--><!----><span class="v-avatar__underlay"></span><!--]--></div></div><!--]--><!----><!--[--><!----><span class="v-card__underlay"></span><!--]--></div></div><div class="v-col-sm-6 v-col-md-3 v-col-12" style=""><div class="v-card v-theme--light v-card--density-default v-card--variant-elevated pa-4 rounded-lg elevation-1 h-100" style=""><!----><div class="v-card__loader"><div class="v-progress-linear v-theme--light v-locale--is-ltr" style="top:0;height:0;--v-progress-linear-height:2px;" role="progressbar" aria-hidden="true" aria-valuemin="0" aria-valuemax="100"><!----><div class="v-progress-linear__background" style=""></div><div class="v-progress-linear__buffer" style="width:0%;"></div><div class="v-progress-linear__indeterminate"><!--[--><div class="v-progress-linear__indeterminate long" style=""></div><div class="v-progress-linear__indeterminate short" style=""></div><!--]--></div><!----></div></div><!----><!----><!--[--><div class="d-flex justify-space-between align-start"><div><p class="text-caption font-weight-bold text-medium-emphasis text-uppercase">Low Stock Alerts</p><h2 class="text-h4 font-weight-bold mt-1 text-grey-darken-3">8 Items</h2><span class="text-caption font-weight-medium text-primary mt-2 d-inline-block">Requires reorder</span></div><div class="v-avatar v-theme--light text-warning v-avatar--density-default v-avatar--variant-tonal rounded-lg" style="width:48px;height:48px;"><!--[--><!--[--><i class="mdi-alert-circle mdi v-icon notranslate v-theme--light" style="font-size:26px;height:26px;width:26px;" aria-hidden="true"></i><!--]--><!--]--><!--[--><!----><span class="v-avatar__underlay"></span><!--]--></div></div><!--]--><!----><!--[--><!----><span class="v-card__underlay"></span><!--]--></div></div><div class="v-col-sm-6 v-col-md-3 v-col-12" style=""><div class="v-card v-theme--light v-card--density-default v-card--variant-elevated pa-4 rounded-lg elevation-1 h-100" style=""><!----><div class="v-card__loader"><div class="v-progress-linear v-theme--light v-locale--is-ltr" style="top:0;height:0;--v-progress-linear-height:2px;" role="progressbar" aria-hidden="true" aria-valuemin="0" aria-valuemax="100"><!----><div class="v-progress-linear__background" style=""></div><div class="v-progress-linear__buffer" style="width:0%;"></div><div class="v-progress-linear__indeterminate"><!--[--><div class="v-progress-linear__indeterminate long" style=""></div><div class="v-progress-linear__indeterminate short" style=""></div><!--]--></div><!----></div></div><!----><!----><!--[--><div class="d-flex justify-space-between align-start"><div><p class="text-caption font-weight-bold text-medium-emphasis text-uppercase">Pending Orders</p><h2 class="text-h4 font-weight-bold mt-1 text-grey-darken-3">24 Deliveries</h2><span class="text-caption font-weight-medium text-primary mt-2 d-inline-block">5 arriving today</span></div><div class="v-avatar v-theme--light text-info v-avatar--density-default v-avatar--variant-tonal rounded-lg" style="width:48px;height:48px;"><!--[--><!--[--><i class="mdi-truck-delivery mdi v-icon notranslate v-theme--light" style="font-size:26px;height:26px;width:26px;" aria-hidden="true"></i><!--]--><!--]--><!--[--><!----><span class="v-avatar__underlay"></span><!--]--></div></div><!--]--><!----><!--[--><!----><span class="v-card__underlay"></span><!--]--></div></div><!--]--></div><div class="v-row" style=""><div class="v-col-md-8 v-col-12" style=""><div class="v-card v-theme--light v-card--density-default v-card--variant-elevated pa-6 rounded-lg elevation-1 h-100" style=""><!----><div class="v-card__loader"><div class="v-progress-linear v-theme--light v-locale--is-ltr" style="top:0;height:0;--v-progress-linear-height:2px;" role="progressbar" aria-hidden="true" aria-valuemin="0" aria-valuemax="100"><!----><div class="v-progress-linear__background" style=""></div><div class="v-progress-linear__buffer" style="width:0%;"></div><div class="v-progress-linear__indeterminate"><!--[--><div class="v-progress-linear__indeterminate long" style=""></div><div class="v-progress-linear__indeterminate short" style=""></div><!--]--></div><!----></div></div><!----><!----><!--[--><h3 class="text-h6 font-weight-bold mb-4 text-grey-darken-3">Stock Movement &amp; Inflow Velocity</h3><div style="height:320px;"><div class="d-flex align-center justify-center h-100 text-medium-emphasis"><div class="v-progress-circular v-progress-circular--indeterminate v-theme--light v-progress-circular--size-default text-primary mr-2" style="--progress-reveal-duration:900ms;" role="progressbar" aria-valuemin="0" aria-valuemax="100"><svg style="transform:rotate(calc(-90deg + 0deg));" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.714285714285715 45.714285714285715"><circle class="v-progress-circular__underlay" style="" fill="transparent" cx="50%" cy="50%" r="20" stroke-width="5.714285714285714" stroke-dasharray="125.66370614359172" stroke-dashoffset="0"></circle><circle class="v-progress-circular__overlay" fill="transparent" cx="50%" cy="50%" r="20" stroke-width="5.714285714285714" stroke-dasharray="125.66370614359172" stroke-dashoffset="125.66370614359172px"></circle></svg><!----></div> Loading Chart Data... </div></div><!--]--><!----><!--[--><!----><span class="v-card__underlay"></span><!--]--></div></div><div class="v-col-md-4 v-col-12" style=""><div class="v-card v-theme--light v-card--density-default v-card--variant-elevated pa-6 rounded-lg elevation-1 h-100" style=""><!----><div class="v-card__loader"><div class="v-progress-linear v-theme--light v-locale--is-ltr" style="top:0;height:0;--v-progress-linear-height:2px;" role="progressbar" aria-hidden="true" aria-valuemin="0" aria-valuemax="100"><!----><div class="v-progress-linear__background" style=""></div><div class="v-progress-linear__buffer" style="width:0%;"></div><div class="v-progress-linear__indeterminate"><!--[--><div class="v-progress-linear__indeterminate long" style=""></div><div class="v-progress-linear__indeterminate short" style=""></div><!--]--></div><!----></div></div><!----><!----><!--[--><h3 class="text-h6 font-weight-bold mb-4 text-grey-darken-3">Inventory Distribution</h3><div style="height:320px;"><div class="d-flex align-center justify-center h-100 text-medium-emphasis"><div class="v-progress-circular v-progress-circular--indeterminate v-theme--light v-progress-circular--size-default text-primary mr-2" style="--progress-reveal-duration:900ms;" role="progressbar" aria-valuemin="0" aria-valuemax="100"><svg style="transform:rotate(calc(-90deg + 0deg));" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.714285714285715 45.714285714285715"><circle class="v-progress-circular__underlay" style="" fill="transparent" cx="50%" cy="50%" r="20" stroke-width="5.714285714285714" stroke-dasharray="125.66370614359172" stroke-dashoffset="0"></circle><circle class="v-progress-circular__overlay" fill="transparent" cx="50%" cy="50%" r="20" stroke-width="5.714285714285714" stroke-dasharray="125.66370614359172" stroke-dashoffset="125.66370614359172px"></circle></svg><!----></div> Loading Distribution... </div></div><!--]--><!----><!--[--><!----><span class="v-card__underlay"></span><!--]--></div></div></div></div><!--]--></div><!--]--></main><!--]--></div></div><!--]--></div></div></div><div id="teleports"></div><script>window.__NUXT__={};window.__NUXT__.config={public:{},app:{baseURL:"/Multi-Theme-Ecommerce-Project/",buildId:"9ae7df0b-73bd-40ff-be5e-4e7c7f807ccf",buildAssetsDir:"_nuxt",cdnURL:""}}</script><script type="application/json" data-nuxt-data="nuxt-app" data-ssr="true" id="__NUXT_DATA__" data-src="/Multi-Theme-Ecommerce-Project/_payload.json?9ae7df0b-73bd-40ff-be5e-4e7c7f807ccf">[{"state":1,"once":3,"_errors":4,"serverRendered":6,"path":7,"pinia":8,"prerenderedAt":9},["Reactive",2],{},["Set"],["ShallowReactive",5],{},true,"\u002F",{},1785141599000]</script></body></html>
