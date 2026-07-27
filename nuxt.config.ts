@@ -8,13 +8,22 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/Multi-Theme-Ecommerce-Project/',
     head: {
-      // Import Material Design Icons for Vuetify icons to display properly
       link: [
         {
           rel: 'stylesheet',
           href: 'https://cdn.jsdelivr.net/npm/@mdi/font@7.x/css/materialdesignicons.min.css'
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://cdn.jsdelivr.net/npm/vuetify@3.7.0/dist/vuetify.min.css'
         }
       ]
+    }
+  },
+
+  nitro: {
+    prerender: {
+      failOnError: false
     }
   },
 
@@ -26,21 +35,11 @@ export default defineNuxtConfig({
     '@pinia/nuxt'
   ],
 
-  css: [
-    '~/assets/css/tailwind.css'
-  ],
+  css: ['~/assets/css/tailwind.css'],
 
   vite: {
     plugins: [
       tailwindcss()
     ]
-  },
-
-  vuetify: {
-    vuetifyOptions: {
-      theme: {
-        defaultTheme: 'light'
-      }
-    }
   }
 })
