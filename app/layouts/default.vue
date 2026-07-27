@@ -1,7 +1,7 @@
 <template>
   <v-app class="bg-grey-lighten-4">
-    <!-- Fixed position top navigation header -->
-    <v-app-bar app fixed elevation="1" color="surface">
+    <!-- Navigation Header -->
+    <v-app-bar elevation="1" color="surface" fixed>
       <v-container fluid class="d-flex align-center py-0 px-6">
         <v-icon icon="mdi-chart-timeline-variant" color="primary" size="28" class="mr-3" />
         <v-app-bar-title class="font-weight-bold text-h6 text-primary">
@@ -10,7 +10,6 @@
 
         <v-spacer />
 
-        <!-- Navigation Tabs -->
         <v-btn
           to="/"
           variant="text"
@@ -32,8 +31,8 @@
       </v-container>
     </v-app-bar>
 
-    <!-- Fallback inline padding-top guarantees main content sits safely below header -->
-    <v-main style="padding-top: 70px !important;">
+    <!-- Margin top ensures header never covers title or content -->
+    <v-main style="margin-top: 64px;">
       <v-container fluid class="pa-6">
         <slot />
       </v-container>
