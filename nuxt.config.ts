@@ -7,7 +7,7 @@ export default defineNuxtConfig({
 
   app: {
     baseURL: '/Multi-Theme-Ecommerce-Project/',
-    buildAssetsDir: '_nuxt',
+    buildAssetsDir: '/_nuxt/', // Added slashes to fix 404 JS chunk drops
     head: {
       link: [
         {
@@ -20,6 +20,10 @@ export default defineNuxtConfig({
         }
       ]
     }
+  },
+
+  build: {
+    transpile: ['chart.js', 'vue-chartjs']
   },
 
   nitro: {
@@ -43,7 +47,6 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss()
     ],
-    // Forces Vite to pre-bundle chart dependencies cleanly
     optimizeDeps: {
       include: [
         'vuetify',
