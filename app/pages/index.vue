@@ -1,20 +1,10 @@
 <script setup>
-import { Bar, Doughnut } from 'vue-chartjs'
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale,
-  ArcElement
-} from 'chart.js'
+import { ref, onMounted } from 'vue'
 
-// Register Chart.js Modules
-ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, ArcElement)
+const isChartReady = ref(false)
+let BarComponent = null
+let DoughnutComponent = null
 
-// Monthly Stock Movement Chart Data
 const barData = ref({
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
   datasets: [
@@ -36,7 +26,6 @@ const barOptions = ref({
   maintainAspectRatio: false
 })
 
-// Category Ratio Doughnut Chart Data
 const doughnutData = ref({
   labels: ['Electronics', 'Peripherals', 'Furniture', 'Accessories'],
   datasets: [
@@ -58,6 +47,26 @@ const metrics = [
   { title: 'Low Stock Alerts', value: '8 Items', icon: 'mdi-alert-circle', color: 'warning', change: 'Requires reorder' },
   { title: 'Pending Orders', value: '24 Deliveries', icon: 'mdi-truck-delivery', color: 'info', change: '5 arriving today' }
 ]
+
+// Safely register and mount Chart.js only when running in browser
+onMounted(async () => {
+  const chartJs = await import('chart.js')
+  const vueChartJs = await import('vue-chartjs')
+
+  chartJs.Chart.register(
+    chartJs.Title,
+    chartJs.Tooltip,
+    chartJs.Legend,
+    chartJs.BarElement,
+    chartJs.CategoryScale,
+    chartJs.LinearScale,
+    chartJs.ArcElement
+  )
+
+  BarComponent = vueChartJs.Bar
+  DoughnutComponent = vueChartJs.Doughnut
+  isChartReady.value = true
+})
 </script>
 
 <template>
@@ -99,9 +108,10 @@ const metrics = [
         <v-card class="pa-6 rounded-lg elevation-1 h-100">
           <h3 class="text-h6 font-weight-bold mb-4 text-grey-darken-3">Stock Movement & Inflow Velocity</h3>
           <div style="height: 320px;">
-            <ClientOnly>
-              <Bar :data="barData" :options="barOptions" />
-            </ClientOnly>
+            <component :is="BarComponent" v-if="isChartReady" :data="barData" :options="barOptions" />
+            <div v-else class="d-flex align-center justify-center h-100 text-medium-emphasis">
+              <v-progress-circular indeterminate color="primary" class="mr-2" /> Loading Chart Data...
+            </div>
           </div>
         </v-card>
       </v-col>
@@ -110,9 +120,10 @@ const metrics = [
         <v-card class="pa-6 rounded-lg elevation-1 h-100">
           <h3 class="text-h6 font-weight-bold mb-4 text-grey-darken-3">Inventory Distribution</h3>
           <div style="height: 320px;">
-            <ClientOnly>
-              <Doughnut :data="doughnutData" :options="doughnutOptions" />
-            </ClientOnly>
+            <component :is="DoughnutComponent" v-if="isChartReady" :data="doughnutData" :options="doughnutOptions" />
+            <div v-else class="d-flex align-center justify-center h-100 text-medium-emphasis">
+              <v-progress-circular indeterminate color="primary" class="mr-2" /> Loading Distribution...
+            </div>
           </div>
         </v-card>
       </v-col>
