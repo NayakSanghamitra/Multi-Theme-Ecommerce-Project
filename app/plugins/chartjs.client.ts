@@ -1,26 +1,6 @@
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale,
-  ArcElement,
-  DoughnutController,
-  BarController
-} from 'chart.js'
+import { Chart as ChartJS, registerables } from 'chart.js'
 
 export default defineNuxtPlugin(() => {
-  ChartJS.register(
-    Title,
-    Tooltip,
-    Legend,
-    BarElement,
-    CategoryScale,
-    LinearScale,
-    ArcElement,
-    DoughnutController,
-    BarController
-  )
+  // Registers all scales, controllers, elements, and plugins at once
+  ChartJS.register(...registerables)
 })
