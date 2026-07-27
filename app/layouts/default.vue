@@ -1,39 +1,30 @@
 <template>
-  <v-app-bar elevation="1" color="surface">
-    <v-app-bar-title class="font-weight-bold text-primary">
-      <v-icon icon="mdi-cube-outline" class="mr-2" />
-      Stock Operations Hub
-    </v-app-bar-title>
-    
-    <v-spacer />
+  <v-app class="bg-grey-lighten-4">
+    <!-- Top Header -->
+    <v-app-bar color="primary" elevation="2">
+      <v-container class="d-flex align-center py-0">
+        <v-icon icon="mdi-chart-timeline-variant" size="28" class="mr-3" />
+        <v-app-bar-title class="font-weight-bold text-h6">
+          StockTrack Platform
+        </v-app-bar-title>
 
-    <v-chip color="primary" variant="flat" class="mr-4">
-      ERP Nexus 4
-    </v-chip>
-  </v-app-bar>
+        <v-spacer />
 
-  <v-navigation-drawer permanent width="240">
-    <v-list density="compact" nav class="mt-2">
-      <v-list-item
-        prepend-icon="mdi-view-dashboard"
-        title="Dashboard"
-        value="dashboard"
-        to="/"
-        color="primary"
-      />
-      <v-list-item
-        prepend-icon="mdi-package-variant-closed"
-        title="Inventory"
-        value="inventory"
-        to="/inventory"
-        color="primary"
-      />
-    </v-list>
-  </v-navigation-drawer>
+        <!-- Tab Navigation -->
+        <v-btn to="/" variant="text" class="text-capitalize" prepend-icon="mdi-view-dashboard">
+          Dashboard
+        </v-btn>
+        <v-btn to="/inventory" variant="text" class="text-capitalize ml-2" prepend-icon="mdi-package-variant font-weight-bold">
+          Inventory
+        </v-btn>
+      </v-container>
+    </v-app-bar>
 
-  <v-main class="bg-grey-lighten-4">
-    <v-container fluid class="pa-6">
-      <slot />
-    </v-container>
-  </v-main>
+    <!-- Main Page Content -->
+    <v-main>
+      <v-container class="py-8">
+        <slot />
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
