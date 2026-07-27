@@ -5,11 +5,11 @@ export default defineNuxtConfig({
     compatibilityVersion: 4
   },
 
-  ssr: true, // Required for static HTML generation with nuxi generate
+  ssr: true,
 
   app: {
     baseURL: '/Multi-Theme-Ecommerce-Project/',
-    buildAssetsDir: '_nuxt', // Avoids leading slash issues in static routing
+    buildAssetsDir: '_nuxt',
     head: {
       link: [
         {
@@ -22,6 +22,11 @@ export default defineNuxtConfig({
         }
       ]
     }
+  },
+
+  // Tells Nuxt how to bundle chart.js for SSR & static builds
+  build: {
+    transpile: ['chart.js']
   },
 
   nitro: {
