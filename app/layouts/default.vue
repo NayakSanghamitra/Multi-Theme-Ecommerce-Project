@@ -1,7 +1,7 @@
 <template>
   <v-app class="bg-grey-lighten-4">
-    <!-- Navigation Header -->
-    <v-app-bar elevation="1" color="surface" fixed>
+    <!-- Header with fixed height -->
+    <v-app-bar elevation="1" color="surface" height="64">
       <v-container fluid class="d-flex align-center py-0 px-6">
         <v-icon icon="mdi-chart-timeline-variant" color="primary" size="28" class="mr-3" />
         <v-app-bar-title class="font-weight-bold text-h6 text-primary">
@@ -31,8 +31,8 @@
       </v-container>
     </v-app-bar>
 
-    <!-- Margin top ensures header never covers title or content -->
-    <v-main style="margin-top: 64px;">
+    <!-- Explicit top padding prevents overlapping -->
+    <v-main style="padding-top: 64px !important;">
       <v-container fluid class="pa-6">
         <slot />
       </v-container>
