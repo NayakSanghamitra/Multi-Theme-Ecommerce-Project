@@ -1,24 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
 import { Bar, Doughnut } from 'vue-chartjs'
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale,
-  ArcElement
-} from 'chart.js'
-
-const isLoaded = ref(false)
-
-// Safe Client-Only Plugin Registration
-onMounted(() => {
-  ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, ArcElement)
-  isLoaded.value = true
-})
 
 const barData = ref({
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
@@ -104,7 +85,7 @@ const metrics = [
           <h3 class="text-h6 font-weight-bold mb-4 text-grey-darken-3">Stock Movement & Inflow Velocity</h3>
           <div style="height: 320px; position: relative;">
             <ClientOnly>
-              <Bar v-if="isLoaded" :data="barData" :options="barOptions" />
+              <Bar :data="barData" :options="barOptions" />
             </ClientOnly>
           </div>
         </v-card>
@@ -115,7 +96,7 @@ const metrics = [
           <h3 class="text-h6 font-weight-bold mb-4 text-grey-darken-3">Inventory Distribution</h3>
           <div style="height: 320px; position: relative;">
             <ClientOnly>
-              <Doughnut v-if="isLoaded" :data="doughnutData" :options="doughnutOptions" />
+              <Doughnut :data="doughnutData" :options="doughnutOptions" />
             </ClientOnly>
           </div>
         </v-card>
