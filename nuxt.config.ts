@@ -5,8 +5,6 @@ export default defineNuxtConfig({
     compatibilityVersion: 4
   },
 
-  ssr: true,
-
   app: {
     baseURL: '/Multi-Theme-Ecommerce-Project/',
     buildAssetsDir: '_nuxt',
@@ -22,10 +20,6 @@ export default defineNuxtConfig({
         }
       ]
     }
-  },
-
-  build: {
-    transpile: ['chart.js']
   },
 
   nitro: {
@@ -48,6 +42,14 @@ export default defineNuxtConfig({
   vite: {
     plugins: [
       tailwindcss()
-    ]
+    ],
+    // Forces Vite to pre-bundle chart dependencies cleanly
+    optimizeDeps: {
+      include: [
+        'vuetify',
+        'chart.js',
+        'vue-chartjs'
+      ]
+    }
   }
 })
