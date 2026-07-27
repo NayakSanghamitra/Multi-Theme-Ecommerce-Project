@@ -28,13 +28,6 @@
         to="/inventory"
         color="primary"
       />
-      <v-list-item
-        prepend-icon="mdi-chart-bar"
-        title="Analytics"
-        value="analytics"
-        to="/analytics"
-        color="primary"
-      />
     </v-list>
   </v-navigation-drawer>
 
