@@ -69,8 +69,8 @@ const metrics = [
           <h1 class="text-h4 font-weight-bold text-grey-darken-3">Executive Operations Overview</h1>
           <p class="text-body-1 text-medium-emphasis mt-1">Real-time inventory velocity, stock turnover rates, and financial reports.</p>
         </div>
-        <v-btn color="primary" size="large" prepend-icon="mdi-download" elevation="1">
-          Export Analytics
+        <v-btn to="/inventory" color="primary" size="large" prepend-icon="mdi-package-variant" elevation="1">
+          Open Inventory
         </v-btn>
       </div>
     </v-card>
@@ -99,7 +99,6 @@ const metrics = [
         <v-card class="pa-6 rounded-lg elevation-1 h-100">
           <h3 class="text-h6 font-weight-bold mb-4 text-grey-darken-3">Stock Movement & Inflow Velocity</h3>
           <div style="height: 320px;">
-            <!-- ClientOnly ensures Chart.js renders properly on client side -->
             <ClientOnly>
               <Bar :data="barData" :options="barOptions" />
             </ClientOnly>
@@ -111,7 +110,6 @@ const metrics = [
         <v-card class="pa-6 rounded-lg elevation-1 h-100">
           <h3 class="text-h6 font-weight-bold mb-4 text-grey-darken-3">Inventory Distribution</h3>
           <div style="height: 320px;">
-            <!-- ClientOnly ensures Chart.js renders properly on client side -->
             <ClientOnly>
               <Doughnut :data="doughnutData" :options="doughnutOptions" />
             </ClientOnly>
