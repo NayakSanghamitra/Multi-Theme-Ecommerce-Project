@@ -7,6 +7,7 @@ export default defineNuxtConfig({
 
   app: {
     baseURL: '/Multi-Theme-Ecommerce-Project/',
+    buildAssetsDir: '/_nuxt/',
     head: {
       link: [
         {
@@ -26,6 +27,8 @@ export default defineNuxtConfig({
       failOnError: false
     }
   },
+
+  ssr: false, // Disables server pre-rendering to prevent 404 asset drops on GitHub Pages
 
   compatibilityDate: '2026-07-01',
   devtools: { enabled: true },
