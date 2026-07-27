@@ -1,14 +1,21 @@
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
-  // Nuxt 4 compatibility mode
   future: {
     compatibilityVersion: 4
   },
 
-  // Required for GitHub Pages subpath deployment
   app: {
-    baseURL: '/Multi-Theme-Ecommerce-Project/'
+    baseURL: '/Multi-Theme-Ecommerce-Project/',
+    head: {
+      // Import Material Design Icons for Vuetify icons to display properly
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://cdn.jsdelivr.net/npm/@mdi/font@7.x/css/materialdesignicons.min.css'
+        }
+      ]
+    }
   },
 
   compatibilityDate: '2026-07-01',
@@ -19,8 +26,9 @@ export default defineNuxtConfig({
     '@pinia/nuxt'
   ],
 
-  // In Nuxt 4, assets are inside the app/ directory
-  css: ['~/assets/css/tailwind.css'],
+  css: [
+    '~/assets/css/tailwind.css'
+  ],
 
   vite: {
     plugins: [
