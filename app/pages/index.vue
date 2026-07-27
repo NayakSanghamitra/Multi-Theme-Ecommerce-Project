@@ -1,99 +1,115 @@
 <script setup>
-const metrics = ref([
-  { title: 'Total SKU Stock', value: '1,248 Units', icon: 'mdi-package-variant-closed', color: 'primary', trend: '+4.2% this week' },
-  { title: 'Daily Scan Activity', value: '342 Scans', icon: 'mdi-barcode-scan', color: 'success', trend: 'Sell & Return active' },
-  { title: 'Low Stock Items', value: '12 SKU', icon: 'mdi-alert-outline', color: 'warning', trend: 'Requires reorder' },
-  { title: 'Pending Billing', value: '$2,480.00', icon: 'mdi-cash-register', color: 'info', trend: '5 active sessions' }
-])
+import { Bar, Doughnut } from 'vue-chartjs'
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  ArcElement
+} from 'chart.js'
 
-const recentActivity = ref([
-  { id: 'SCN-9021', type: 'SELL', sku: 'SKU-1001', item: 'Wireless Barcode Scanner', qty: 1, time: '2 mins ago', status: 'Completed' },
-  { id: 'SCN-9020', type: 'RETURN', sku: 'SKU-1002', item: 'Thermal Label Printer', qty: 1, time: '14 mins ago', status: 'Refunded' },
-  { id: 'SCN-9019', type: 'SELL', sku: 'SKU-1001', item: 'Wireless Barcode Scanner', qty: 2, time: '28 mins ago', status: 'Completed' }
-])
+// Register Chart.js Modules
+ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, ArcElement)
+
+// Monthly Stock Movement Chart Data
+const barData = ref({
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+  datasets: [
+    {
+      label: 'Stock Added',
+      backgroundColor: '#10B981',
+      data: [400, 300, 550, 450, 700, 600]
+    },
+    {
+      label: 'Stock Dispatched',
+      backgroundColor: '#EF4444',
+      data: [280, 200, 400, 380, 520, 480]
+    }
+  ]
+})
+
+const barOptions = ref({
+  responsive: true,
+  maintainAspectRatio: false
+})
+
+// Category Ratio Doughnut Chart Data
+const doughnutData = ref({
+  labels: ['Electronics', 'Apparel', 'Home Goods', 'Office'],
+  datasets: [
+    {
+      backgroundColor: ['#3B82F6', '#6366F1', '#EC4899', '#F59E0B'],
+      data: [45, 25, 20, 10]
+    }
+  ]
+})
+
+const doughnutOptions = ref({
+  responsive: true,
+  maintainAspectRatio: false
+})
+
+const metrics = [
+  { title: 'Total Revenue', value: '$48,250', icon: 'mdi-currency-usd', color: 'success', change: '+12% vs last month' },
+  { title: 'Total In Stock', value: '1,420 Items', icon: 'mdi-package-variant', color: 'primary', change: '94% optimal' },
+  { title: 'Low Stock Alerts', value: '8 Items', icon: 'mdi-alert-circle', color: 'warning', change: 'Requires reorder' },
+  { title: 'Pending Orders', value: '24 Deliveries', icon: 'mdi-truck-delivery', color: 'info', change: '5 arriving today' }
+]
 </script>
 
 <template>
   <div>
-    <!-- Hero / Welcome Banner -->
-    <v-card color="surface" elevation="1" class="pa-6 mb-6 rounded-lg border">
-      <div class="d-flex flex-wrap justify-space-between align-center ga-4">
+    <!-- Banner Header -->
+    <v-card class="pa-6 mb-6 rounded-lg elevation-1" color="surface">
+      <div class="d-flex justify-space-between align-center">
         <div>
-          <h1 class="text-h4 font-weight-bold text-primary">Operations Control Center</h1>
-          <p class="text-subtitle-1 text-medium-emphasis mt-1">
-            Real-time tracking, barcode scanning engine, and store financials.
-          </p>
+          <h1 class="text-h4 font-weight-bold text-grey-darken-3">Executive Operations Overview</h1>
+          <p class="text-body-1 text-medium-emphasis mt-1">Real-time inventory velocity, stock turnover rates, and financial reports.</p>
         </div>
-        <div>
-          <v-btn to="/inventory" color="primary" prepend-icon="mdi-package-variant" elevation="1">
-            Manage Inventory
-          </v-btn>
-        </div>
+        <v-btn color="primary" size="large" prepend-icon="mdi-download" elevation="1">
+          Export Analytics
+        </v-btn>
       </div>
     </v-card>
 
-    <!-- Key ERP Metrics Grid -->
+    <!-- Metrics Cards Grid -->
     <v-row class="mb-6">
       <v-col v-for="metric in metrics" :key="metric.title" cols="12" sm="6" md="3">
-        <v-card elevation="1" class="pa-4 h-100">
+        <v-card class="pa-4 rounded-lg elevation-1 h-100">
           <div class="d-flex justify-space-between align-start">
             <div>
-              <span class="text-caption font-weight-bold text-medium-emphasis text-uppercase">{{ metric.title }}</span>
-              <h2 class="text-h5 font-weight-bold mt-1">{{ metric.value }}</h2>
-              <span class="text-caption text-success font-weight-medium">{{ metric.trend }}</span>
+              <p class="text-caption font-weight-bold text-medium-emphasis text-uppercase">{{ metric.title }}</p>
+              <h2 class="text-h4 font-weight-bold mt-1 text-grey-darken-3">{{ metric.value }}</h2>
+              <span class="text-caption font-weight-medium text-primary mt-2 d-inline-block">{{ metric.change }}</span>
             </div>
-            <v-avatar :color="metric.color" variant="tonal" size="44">
-              <v-icon :icon="metric.icon" size="24" />
+            <v-avatar :color="metric.color" variant="tonal" size="48" class="rounded-lg">
+              <v-icon :icon="metric.icon" size="26" />
             </v-avatar>
           </div>
         </v-card>
       </v-col>
     </v-row>
 
-    <!-- Recent Barcode Activity & Quick Operations -->
+    <!-- Chart Visualizations -->
     <v-row>
       <v-col cols="12" md="8">
-        <v-card elevation="1" title="Recent Scan Transactions">
-          <v-divider />
-          <v-table density="comfortable">
-            <thead>
-              <tr>
-                <th>Transaction ID</th>
-                <th>Mode</th>
-                <th>Item Name</th>
-                <th>Qty</th>
-                <th>Timestamp</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="act in recentActivity" :key="act.id">
-                <td class="font-weight-medium">{{ act.id }}</td>
-                <td>
-                  <v-chip
-                    :color="act.type === 'SELL' ? 'success' : 'warning'"
-                    size="x-small"
-                    variant="tonal"
-                    class="font-weight-bold"
-                  >
-                    {{ act.type }}
-                  </v-chip>
-                </td>
-                <td>{{ act.item }}</td>
-                <td>{{ act.qty }}</td>
-                <td class="text-medium-emphasis">{{ act.time }}</td>
-              </tr>
-            </tbody>
-          </v-table>
+        <v-card class="pa-6 rounded-lg elevation-1 h-100">
+          <h3 class="text-h6 font-weight-bold mb-4 text-grey-darken-3">Stock Movement & Inflow Velocity</h3>
+          <div style="height: 300px;">
+            <Bar :data="barData" :options="barOptions" />
+          </div>
         </v-card>
       </v-col>
 
       <v-col cols="12" md="4">
-        <v-card elevation="1" title="Quick Actions">
-          <v-card-text class="d-flex flex-column ga-3">
-            <v-btn to="/inventory" block variant="tonal" color="primary" prepend-icon="mdi-barcode-scan">
-              Launch Barcode Scanner
-            </v-btn>
-          </v-card-text>
+        <v-card class="pa-6 rounded-lg elevation-1 h-100">
+          <h3 class="text-h6 font-weight-bold mb-4 text-grey-darken-3">Inventory Distribution</h3>
+          <div style="height: 300px;">
+            <Doughnut :data="doughnutData" :options="doughnutOptions" />
+          </div>
         </v-card>
       </v-col>
     </v-row>
