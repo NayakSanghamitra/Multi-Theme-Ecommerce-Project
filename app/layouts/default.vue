@@ -1,7 +1,7 @@
 <template>
   <v-app class="bg-grey-lighten-4">
-    <!-- 'app' prop reserves space so headers NEVER hide content underneath -->
-    <v-app-bar app elevation="1" color="surface">
+    <!-- Fixed position top navigation header -->
+    <v-app-bar app fixed elevation="1" color="surface">
       <v-container fluid class="d-flex align-center py-0 px-6">
         <v-icon icon="mdi-chart-timeline-variant" color="primary" size="28" class="mr-3" />
         <v-app-bar-title class="font-weight-bold text-h6 text-primary">
@@ -32,9 +32,8 @@
       </v-container>
     </v-app-bar>
 
-    <!-- 'app' prop on v-main moves content below the navigation bar -->
-    <v-main app>
-      <!-- 'fluid' fills left-to-right without large empty side margins -->
+    <!-- Fallback inline padding-top guarantees main content sits safely below header -->
+    <v-main style="padding-top: 70px !important;">
       <v-container fluid class="pa-6">
         <slot />
       </v-container>
