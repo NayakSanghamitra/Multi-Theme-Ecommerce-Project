@@ -1,6 +1,4 @@
 <script setup>
-// Nuxt automatically imports refs, computed, and composables!
-
 const metrics = ref([
   { title: 'Total SKU Stock', value: '1,248 Units', icon: 'mdi-package-variant-closed', color: 'primary', trend: '+4.2% this week' },
   { title: 'Daily Scan Activity', value: '342 Scans', icon: 'mdi-barcode-scan', color: 'success', trend: 'Sell & Return active' },
@@ -26,12 +24,9 @@ const recentActivity = ref([
             Real-time tracking, barcode scanning engine, and store financials.
           </p>
         </div>
-        <div class="d-flex ga-3">
+        <div>
           <v-btn to="/inventory" color="primary" prepend-icon="mdi-package-variant" elevation="1">
             Manage Inventory
-          </v-btn>
-          <v-btn to="/analytics" variant="outlined" color="primary" prepend-icon="mdi-chart-box">
-            View Analytics
           </v-btn>
         </div>
       </div>
@@ -97,9 +92,6 @@ const recentActivity = ref([
           <v-card-text class="d-flex flex-column ga-3">
             <v-btn to="/inventory" block variant="tonal" color="primary" prepend-icon="mdi-barcode-scan">
               Launch Barcode Scanner
-            </v-btn>
-            <v-btn to="/inventory" block variant="tonal" color="secondary" prepend-icon="mdi-file-document-plus">
-              Generate Stock Report
             </v-btn>
           </v-card-text>
         </v-card>
