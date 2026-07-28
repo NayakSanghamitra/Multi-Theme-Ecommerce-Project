@@ -41,37 +41,42 @@
       </div>
     </div>
 
-    <!-- Pinned Scrollable Table Container -->
-    <v-card elevation="1" class="flex-grow-1 overflow-hidden d-flex flex-column">
-      <v-data-table
-        :headers="headers"
-        :items="inventoryItems"
-        :search="search"
-        fixed-header
-        height="100%"
-        class="flex-grow-1"
-        density="comfortable"
-      >
-        <template #item.sku="{ item }">
-          <span class="font-weight-mono font-weight-bold text-primary">{{ item.sku }}</span>
-        </template>
+    <!-- Scroll-Constrained Table Container -->
+    <v-card elevation="1" class="flex-grow-1 position-relative overflow-hidden">
+      <!-- Fixed container wrapper enforcing scroll overflow for table body -->
+      <div class="position-absolute top-0 bottom-0 left-0 right-0 d-flex flex-column">
+        <v-data-table
+          v-model:items-per-page="itemsPerPage"
+          :headers="headers"
+          :items="inventoryItems"
+          :search="search"
+          :items-per-page-options="pageOptions"
+          fixed-header
+          height="100%"
+          class="flex-grow-1 flex-shrink-1"
+          density="comfortable"
+        >
+          <template #item.sku="{ item }">
+            <span class="font-weight-mono font-weight-bold text-primary">{{ item.sku }}</span>
+          </template>
 
-        <template #item.status="{ item }">
-          <v-chip
-            :color="item.status === 'In Stock' ? 'success' : item.status === 'Low Stock' ? 'warning' : 'error'"
-            size="x-small"
-            variant="tonal"
-            class="font-weight-bold"
-          >
-            {{ item.status }}
-          </v-chip>
-        </template>
+          <template #item.status="{ item }">
+            <v-chip
+              :color="item.status === 'In Stock' ? 'success' : item.status === 'Low Stock' ? 'warning' : 'error'"
+              size="x-small"
+              variant="tonal"
+              class="font-weight-bold"
+            >
+              {{ item.status }}
+            </v-chip>
+          </template>
 
-        <template #item.actions="{ item }">
-          <v-btn icon="mdi-pencil-outline" variant="text" size="small" color="primary" @click="openEditDialog(item)" />
-          <v-btn icon="mdi-delete-outline" variant="text" size="small" color="error" @click="deleteItem(item)" />
-        </template>
-      </v-data-table>
+          <template #item.actions="{ item }">
+            <v-btn icon="mdi-pencil-outline" variant="text" size="small" color="primary" @click="openEditDialog(item)" />
+            <v-btn icon="mdi-delete-outline" variant="text" size="small" color="error" @click="deleteItem(item)" />
+          </template>
+        </v-data-table>
+      </div>
     </v-card>
 
     <!-- Interactive Add / Edit Item Dialog Modal -->
@@ -166,6 +171,15 @@ const search = ref('')
 const snackbar = ref(false)
 const snackbarText = ref('')
 
+// Pagination Settings
+const itemsPerPage = ref(10)
+const pageOptions = [
+  { value: 10, title: '10' },
+  { value: 25, title: '25' },
+  { value: 50, title: '50' },
+  { value: -1, title: 'All' }
+]
+
 // Dialog Modal States
 const dialog = ref(false)
 const isEditing = ref(false)
@@ -192,7 +206,7 @@ const headers = [
 ]
 
 const inventoryItems = ref(
-  Array.from({ length: 45 }, (_, i) => ({
+  Array.from({ length: 50 }, (_, i) => ({
     sku: `SKU-${1000 + i}`,
     name: `Enterprise Product Unit ${i + 1}`,
     category: i % 2 === 0 ? 'Electronics' : i % 3 === 0 ? 'Peripherals' : 'Furniture',
@@ -202,7 +216,6 @@ const inventoryItems = ref(
   }))
 )
 
-// Modal Logic Functions
 function openAddDialog() {
   isEditing.value = false
   Object.assign(formItem, {
@@ -258,12 +271,11 @@ function triggerToast(text: string) {
   snackbar.value = true
 }
 
-// Barcode Scanning Hardware Listener Simulation
 let barcodeBuffer = ''
 let lastKeyTime = Date.now()
 
 function handleKeyDown(event: KeyboardEvent) {
-  if (dialog.value) return // Don't trigger scan while typing in modal
+  if (dialog.value) return
 
   const currentTime = Date.now()
   if (currentTime - lastKeyTime > 100) {
@@ -290,7 +302,6 @@ onUnmounted(() => {
   window.removeEventListener('keydown', handleKeyDown)
 })
 
-// Client-Side CSV Export Engine
 function exportCSV() {
   const csvContent =
     'data:text/csv;charset=utf-8,' +
