@@ -41,41 +41,40 @@
       </div>
     </div>
 
-    <!-- Scroll-Constrained Table Container -->
-    <!-- Pinned Scrollable Table Container -->
-<v-card elevation="1" class="flex-grow-1 overflow-hidden d-flex flex-column min-h-0">
-  <v-data-table
-    v-model:items-per-page="itemsPerPage"
-    :headers="headers"
-    :items="inventoryItems"
-    :search="search"
-    :items-per-page-options="pageOptions"
-    fixed-header
-    style="height: 100%; overflow-y: auto;"
-    class="flex-grow-1"
-    density="comfortable"
-  >
-    <template #item.sku="{ item }">
-      <span class="font-weight-mono font-weight-bold text-primary">{{ item.sku }}</span>
-    </template>
-
-    <template #item.status="{ item }">
-      <v-chip
-        :color="item.status === 'In Stock' ? 'success' : item.status === 'Low Stock' ? 'warning' : 'error'"
-        size="x-small"
-        variant="tonal"
-        class="font-weight-bold"
+    <!-- Table Container with Controlled Scroll Height -->
+    <v-card elevation="1" class="flex-grow-1 overflow-hidden d-flex flex-column" style="min-height: 0;">
+      <v-data-table
+        v-model:items-per-page="itemsPerPage"
+        v-model:page="page"
+        :headers="headers"
+        :items="inventoryItems"
+        :search="search"
+        :items-per-page-options="pageOptions"
+        fixed-header
+        density="comfortable"
+        class="flex-grow-1 overflow-auto"
       >
-        {{ item.status }}
-      </v-chip>
-    </template>
+        <template #item.sku="{ item }">
+          <span class="font-weight-mono font-weight-bold text-primary">{{ item.sku }}</span>
+        </template>
 
-    <template #item.actions="{ item }">
-      <v-btn icon="mdi-pencil-outline" variant="text" size="small" color="primary" @click="openEditDialog(item)" />
-      <v-btn icon="mdi-delete-outline" variant="text" size="small" color="error" @click="deleteItem(item)" />
-    </template>
-  </v-data-table>
-</v-card>
+        <template #item.status="{ item }">
+          <v-chip
+            :color="item.status === 'In Stock' ? 'success' : item.status === 'Low Stock' ? 'warning' : 'error'"
+            size="x-small"
+            variant="tonal"
+            class="font-weight-bold"
+          >
+            {{ item.status }}
+          </v-chip>
+        </template>
+
+        <template #item.actions="{ item }">
+          <v-btn icon="mdi-pencil-outline" variant="text" size="small" color="primary" @click="openEditDialog(item)" />
+          <v-btn icon="mdi-delete-outline" variant="text" size="small" color="error" @click="deleteItem(item)" />
+        </template>
+      </v-data-table>
+    </v-card>
 
     <!-- Interactive Add / Edit Item Dialog Modal -->
     <v-dialog v-model="dialog" max-width="500px" persistent>
@@ -169,7 +168,8 @@ const search = ref('')
 const snackbar = ref(false)
 const snackbarText = ref('')
 
-// Pagination Settings
+// Bound Pagination Controls
+const page = ref(1)
 const itemsPerPage = ref(10)
 const pageOptions = [
   { value: 10, title: '10' },
